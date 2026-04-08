@@ -28,21 +28,6 @@ html, body {
   color: var(--color-text); /* สีข้อความ */
 }
 
-body.no-code {
-  noscript {
-    display: block; /* แสดงเนื้อหาเมื่อไม่มี JavaScript */
-    text-align: center; /* จัดตำแหน่งข้อความให้อยู่ตรงกลาง */
-    padding: 2rem; /* ระยะห่างรอบๆ ข้อความ */
-    font-size: 1.5rem; /* ขนาดตัวอักษร */
-    color: var(--color-text); /* สีข้อความ */
-  }
-  header, nav, aside, main, footer {
-    display: none; /* ซ่อนส่วนอื่นๆ เมื่อไม่มี JavaScript */
-  }
-}
-
-body::not(.no-code) {
-
 header.top-bar {
   background-color: var(--color-background); /* สีพื้นหลัง */
   border-bottom-style:solid;
@@ -433,5 +418,16 @@ p.center {
     filter: invert(0%); /* ไม่ต้องกลับสีสำหรับโหมดสว่าง */
   }
 }
-}
 
+body:has(.no-code) {
+  noscript {
+    display: block; /* แสดงเนื้อหาเมื่อไม่มี JavaScript */
+    text-align: center; /* จัดตำแหน่งข้อความให้อยู่ตรงกลาง */
+    padding: 2rem; /* ระยะห่างรอบๆ ข้อความ */
+    font-size: 1.5rem; /* ขนาดตัวอักษร */
+    color: var(--color-text); /* สีข้อความ */
+  }
+  header, nav, aside, main, footer {
+    display: none; /* ซ่อนส่วนอื่นๆ เมื่อไม่มี JavaScript */
+  }
+}
